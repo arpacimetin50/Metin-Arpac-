@@ -3,35 +3,471 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="./yeni-logo.png" />
+    <link rel="icon" type="image/png" href="yeni-logo.png">
 
-    <!-- SEO Meta Etiketleri -->
+    <!-- SEO -->
     <title>Metin Arpacı — Yazar &amp; Sinemacı</title>
     <meta name="description" content="Metin Arpacı — Köprüköy doğumlu yazar ve sinemacı. Şiir, hikâye ve roman kitaplarının yanı sıra çok sayıda uzun ve kısa metrajlı belgesel filmin yönetmeni.">
     <meta name="author" content="Metin Arpacı">
 
-    <!-- Open Graph / Facebook / WhatsApp -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Metin Arpacı — Yazar &amp; Sinemacı">
     <meta property="og:description" content="Metin Arpacı'nın resmi sitesi. Şiir, hikâye ve roman kitapları ile belgesel filmlerini keşfedin.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="./yeni-logo.png">
     <meta property="og:site_name" content="Metin Arpacı">
-    <meta property="og:locale" content="tr_TR">
+    <meta property="og:locale" content="tr">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Metin Arpacı — Yazar &amp; Sinemacı">
-    <meta name="twitter:description" content="Metin Arpacı'nın resmi sitesi. Şiir, hikâye ve roman kitapları ile belgesel filmlerini keşfedin.">
-    <meta name="twitter:image" content="./yeni-logo.png">
 
-    <!-- Stil Dosyası Bağlantısı -->
-    <link rel="stylesheet" crossorigin="" href="./index_files/index-BiZsLjp4.css">
+    <!-- CSS Kodları ve Görsel Standartları -->
+    <style>
+        /* Genel Temel Ayarlar */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1f2937;
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1024px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Navigasyon & Header */
+        header {
+            width: 100%;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-title {
+            padding: 1rem 0;
+        }
+
+        .header-title a {
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: #111827;
+            text-decoration: none;
+            font-family: "EB Garamond", Georgia, serif;
+        }
+
+        .header-title p {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-family: "EB Garamond", Georgia, serif;
+        }
+
+        nav {
+            background-color: #f0eab0;
+            width: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+        }
+
+        nav a {
+            display: block;
+            padding: 0.625rem 1rem;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #111827;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-family: Verdana, Arial, sans-serif;
+        }
+
+        nav a:hover {
+            color: #8b1a1a;
+        }
+
+        /* Bölüm Başlıkları */
+        section {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid #8b1a1a;
+            color: #8b1a1a;
+            font-family: Verdana, Arial, sans-serif;
+        }
+
+        /* Görseller için Standart Oran Ayarları */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .aspect-poster {
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            object-fit: cover;
+            border-radius: 0.375rem;
+            background-color: #f3f4f6;
+        }
+
+        /* Özgeçmiş Düzeni */
+        .bio-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        @media (min-width: 768px) {
+            .bio-container {
+                flex-direction: row;
+            }
+        }
+
+        .bio-image {
+            width: 12rem;
+            height: auto;
+            object-fit: cover;
+            border-radius: 0.375rem;
+            border: 1px solid #e5e7eb;
+            flex-shrink: 0;
+        }
+
+        .bio-text {
+            font-family: Lora, Georgia, serif;
+            font-size: 0.938rem;
+            line-height: 1.8;
+            color: #111827;
+        }
+
+        /* Izgara (Grid) Düzenleri */
+        .grid-films {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .grid-films { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-films { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .grid-recommendations {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .grid-recommendations { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        @media (min-width: 768px) {
+            .grid-recommendations { grid-template-columns: repeat(5, 1fr); }
+        }
+
+        /* Kart İçerikleri */
+        .card-type {
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #8b1a1a;
+            font-family: Verdana, Arial, sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        .card-title {
+            font-family: "EB Garamond", Georgia, serif;
+            font-size: 1.063rem;
+            font-weight: bold;
+            margin-top: 0.25rem;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+
+        .card-desc {
+            font-family: Lora, Georgia, serif;
+            font-size: 0.813rem;
+            line-height: 1.7;
+            color: #4b5563;
+        }
+
+        /* Kitap Listesi */
+        .book-item {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #f3f4f6;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .book-item {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .book-cover {
+            width: 8rem;
+            height: auto;
+            object-fit: cover;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.25rem;
+            flex-shrink: 0;
+        }
+    </style>
 </head>
 <body>
-    <!-- Uygulamanın Yüklendiği Ana Alan (Arayüzün Ekrana Gelmesini Sağlar) -->
-    <div id="root"></div>
 
-    <!-- Uygulama Script Bağlantısı -->
-    <script type="module" crossorigin="" src="./index_files/index-Bryh1aX3.js.indir"></script>
+    <!-- Header -->
+    <header>
+        <div class="container header-title">
+            <a href="#">Metin Arpacı</a>
+            <p>Yazar &amp; Sinemacı</p>
+        </div>
+        <nav>
+            <div class="container">
+                <ul>
+                    <li><a href="#ozgecmis">ÖZGEÇMİŞ</a></li>
+                    <li><a href="#filmler">FİLMLER</a></li>
+                    <li><a href="#kitaplar">KİTAPLAR</a></li>
+                    <li><a href="#tavsiye">TAVSİYE FİLMLER</a></li>
+                    <li><a href="#iletisim">İLETİŞİM</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Özgeçmiş -->
+        <section id="ozgecmis">
+            <h2 class="section-title">ÖZGEÇMİŞ</h2>
+            <div class="bio-container">
+                <img src="metinarpaci-1790533611.jpg" alt="Metin Arpacı" class="bio-image">
+                <p class="bio-text">
+                    Köprüköy doğumlu. Ankara'da yaşamakta olup edebiyatı çok sever. Daha çok adını sinemacı olarak duyursa da şimdilik basılı olarak "Bir" ve "Ötede Dirilmek Var" isminde iki şiir kitabı ve "Sayfa Doldurma Memuru" ile "Doğu'da Bir Öğretmen" isminde iki hikâye kitabı ve son olarak "Kedersiz Yazlar ve Yağmur Çalan Baharlar" isminde bir romanı bulunmaktadır. Sinemacı olarak çok sayıda uzun ve kısa metrajlı belgesel filmin çekimini yapmıştır.
+                </p>
+            </div>
+        </section>
+
+        <!-- Filmler -->
+        <section id="filmler">
+            <h2 class="section-title">FİLMLER</h2>
+            <div class="grid-films">
+                <div>
+                    <img src="film_biraz_tarkovski.jpg" alt="Biraz Tarkovski Kuşanmak" class="aspect-poster">
+                    <div style="margin-top: 0.75rem;">
+                        <span class="card-type">Uzun Belgesel</span>
+                        <h3 class="card-title">Biraz Tarkovski Kuşanmak</h3>
+                        <p class="card-desc">Sinema tarihinin en özgün yönetmenlerinden Andrey Tarkovski'nin izinden giden bu belgesel, sanatın ve yaratıcılığın sınırlarını sorguluyor.</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="film_meto_hikayeler.jpg" alt="Meto'dan Kısa Hikayeler" class="aspect-poster">
+                    <div style="margin-top: 0.75rem;">
+                        <span class="card-type">Uzun Belgesel</span>
+                        <h3 class="card-title">Meto'dan Kısa Hikayeler</h3>
+                        <p class="card-desc">Anadolu'nun ücra köşelerinden derlenen kısa hikayelerin büyülü dünyasına bir yolculuk. İnsanın insanla, doğayla ve kaderle hesaplaşması.</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="film_karanfil_ankara.jpg" alt="Karanfil Kokulu Ankara'm" class="aspect-poster">
+                    <div style="margin-top: 0.75rem;">
+                        <span class="card-type">Kısa Belgesel</span>
+                        <h3 class="card-title">Karanfil Kokulu Ankara'm</h3>
+                        <p class="card-desc">Başkentin hafızasında iz bırakan sokaklar, insanlar ve anılar. Ankara'nın karanfil kokan nostaljik bir portresi.</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="film_kederden_irkilen.jpg" alt="Kederden İrkilen Mevsimler" class="aspect-poster">
+                    <div style="margin-top: 0.75rem;">
+                        <span class="card-type">Kısa Belgesel</span>
+                        <h3 class="card-title">Kederden İrkilen Mevsimler</h3>
+                        <p class="card-desc">Mevsimlerin değişimiyle birlikte insanın iç dünyasındaki dönüşümü anlatan lirik bir belgesel.</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="film_sahaf_gunlugu.jpg" alt="Sahaf Günlüğü" class="aspect-poster">
+                    <div style="margin-top: 0.75rem;">
+                        <span class="card-type">Kısa Belgesel</span>
+                        <h3 class="card-title">Sahaf Günlüğü</h3>
+                        <p class="card-desc">Eski kitapların ve onları seven insanların dünyasına açılan bir kapı. Sahafların sessiz ama derin evreninden notlar.</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="film_meslek_gunlugu.jpg" alt="Meslek Günlüğü" class="aspect-poster">
+                    <div style="margin-top: 0.75rem;">
+                        <span class="card-type">Kısa Belgesel</span>
+                        <h3 class="card-title">Meslek Günlüğü</h3>
+                        <p class="card-desc">Farklı mesleklerden insanların gündelik hayatlarına, emeklerine ve hayallerine yakın çekim bir bakış.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kitaplar -->
+        <section id="kitaplar">
+            <h2 class="section-title">KİTAPLAR</h2>
+            
+            <div class="book-item">
+                <img src="bir-1790533612.jpg" alt="Bir" class="book-cover">
+                <div>
+                    <span class="card-type">Şiir</span>
+                    <h3 class="card-title" style="font-size: 1.25rem;">Bir</h3>
+                    <p class="card-desc" style="font-style: italic;">"Bir'den gelen şeyler ne güzel değil mi?" — Şiirin özünde birliğin ve bütünlüğün arayışı yatar. Bu kitap, varoluşun en sade ve en derin anlarını şiirle yakalar.</p>
+                </div>
+            </div>
+
+            <div class="book-item">
+                <img src="kitap_otede_dirilmek.jpg" alt="Ötede Dirilmek Var" class="book-cover">
+                <div>
+                    <span class="card-type">Şiir</span>
+                    <h3 class="card-title" style="font-size: 1.25rem;">Ötede Dirilmek Var</h3>
+                    <p class="card-desc" style="font-style: italic;">"Ölümün ötesinde bir dirilişin umudunu taşıyan şiirler. Kayıp, özlem ve yeniden doğuşun lirik bir serüveni."</p>
+                </div>
+            </div>
+
+            <div class="book-item">
+                <img src="kitap_sayfa_doldurma.jpg" alt="Sayfa Doldurma Memuru" class="book-cover">
+                <div>
+                    <span class="card-type">Hikâye</span>
+                    <h3 class="card-title" style="font-size: 1.25rem;">Sayfa Doldurma Memuru</h3>
+                    <p class="card-desc" style="font-style: italic;">"Çılgınlaşmasaydı kaleme dokunmazdı. Delirmeseydi yazmazdı. Her gün bitiyordu ve bir daha, bir daha tükenip bir dahaya varıyordu. Günleri renksiz, solgun..."</p>
+                </div>
+            </div>
+
+            <div class="book-item">
+                <img src="doğu-1790533612.jpg" alt="Doğu'da Bir Öğretmen" class="book-cover">
+                <div>
+                    <span class="card-type">Hikâye</span>
+                    <h3 class="card-title" style="font-size: 1.25rem;">Doğu'da Bir Öğretmen</h3>
+                    <p class="card-desc" style="font-style: italic;">"Doğu'nun karlı dağlarında, ıssız köylerinde bir öğretmenin yalnızlığı ve umut dolu mücadelesi..."</p>
+                </div>
+            </div>
+
+            <div class="book-item" style="border-bottom: none;">
+                <img src="kedersiz yazlar ve yağmur çalan baharlar-1790533612.jpg" alt="Kedersiz Yazlar ve Yağmur Çalan Baharlar" class="book-cover">
+                <div>
+                    <span class="card-type">Roman</span>
+                    <h3 class="card-title" style="font-size: 1.25rem;">Kedersiz Yazlar ve Yağmur Çalan Baharlar</h3>
+                    <p class="card-desc" style="font-style: italic;">"Kedersiz yazların ve yağmur çalan baharların arasında büyüyen bir çocukluk, bir gençlik, bir hayat..."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tavsiye Filmler -->
+        <section id="tavsiye">
+            <h2 class="section-title">İZLEMESİNİ TAVSİYE ETTİĞİ FİLMLER</h2>
+            <div class="grid-recommendations">
+                <div>
+                    <img src="item_arkadas_evi_16c1c189.jpg" alt="Arkadaşımın Evi Nerede" class="aspect-poster">
+                    <div style="margin-top: 0.5rem;">
+                        <p class="card-title" style="font-size: 0.813rem; margin: 0;">Arkadaşımın Evi Nerede</p>
+                        <p style="font-size: 0.625rem; color: #6b7280; font-family: Verdana, Arial, sans-serif;">Abbas Kiyarüstemi</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="item_cennet_cocuklari_50c02c1c.jpg" alt="Cennetin Çocukları" class="aspect-poster">
+                    <div style="margin-top: 0.5rem;">
+                        <p class="card-title" style="font-size: 0.813rem; margin: 0;">Cennetin Çocukları</p>
+                        <p style="font-size: 0.625rem; color: #6b7280; font-family: Verdana, Arial, sans-serif;">Mecid Mecidi</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="item_torino_ati_8850de3b.jpg" alt="Torino Atı" class="aspect-poster">
+                    <div style="margin-top: 0.5rem;">
+                        <p class="card-title" style="font-size: 0.813rem; margin: 0;">Torino Atı</p>
+                        <p style="font-size: 0.625rem; color: #6b7280; font-family: Verdana, Arial, sans-serif;">Bela Tarr</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="item_yedi_samuray_ce942f9e.jpg" alt="Yedi Samuray" class="aspect-poster">
+                    <div style="margin-top: 0.5rem;">
+                        <p class="card-title" style="font-size: 0.813rem; margin: 0;">Yedi Samuray</p>
+                        <p style="font-size: 0.625rem; color: #6b7280; font-family: Verdana, Arial, sans-serif;">Akira Kurosawa</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="item_iz_surucu_73624c82.jpg" alt="İz Sürücü" class="aspect-poster">
+                    <div style="margin-top: 0.5rem;">
+                        <p class="card-title" style="font-size: 0.813rem; margin: 0;">İz Sürücü</p>
+                        <p style="font-size: 0.625rem; color: #6b7280; font-family: Verdana, Arial, sans-serif;">Andrey Tarkovski</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="item_umut_532a54c9.jpg" alt="Umut" class="aspect-poster">
+                    <div style="margin-top: 0.5rem;">
+                        <p class="card-title" style="font-size: 0.813rem; margin: 0;">Umut</p>
+                        <p style="font-size: 0.625rem; color: #6b7280; font-family: Verdana, Arial, sans-serif;">Yılmaz Güney</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="item_yol_94456792.jpg" alt="Yol" class="aspect-poster">
+                    <div style="margin-top: 0.5rem;">
+                        <p class="card-title" style="font-size: 0.813rem; margin: 0;">Yol</p>
+                        <p style="font-size: 0.625rem; color: #6b7280; font-family: Verdana, Arial, sans-serif;">Şerif Gören / Yılmaz Güney</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="item_suru_5cebc005.jpg" alt="Sürü" class="aspect-poster">
+                    <div style="margin-top: 0.5rem;">
+                        <p class="card-title" style="font-size: 0.813rem; margin: 0;">Sürü</p>
+                        <p style="font-size: 0.625rem; color: #6b7280; font-family: Verdana, Arial, sans-serif;">Zeki Ökten</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="item_sarhosatlar_e637a77d.jpg" alt="Sarhoş Atlar Zamanı" class="aspect-poster">
+                    <div style="margin-top: 0.5rem;">
+                        <p class="card-title" style="font-size: 0.813rem; margin: 0;">Sarhoş Atlar Zamanı</p>
+                        <p style="font-size: 0.625rem; color: #6b7280; font-family: Verdana, Arial, sans-serif;">Bahman Ghobadi</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="item_anadoluda_0cb8646f.jpg" alt="Bir Zamanlar Anadolu'da" class="aspect-poster">
+                    <div style="margin-top: 0.5rem;">
+                        <p class="card-title" style="font-size: 0.813rem; margin: 0;">Bir Zamanlar Anadolu'da</p>
+                        <p style="font-size: 0.625rem; color: #6b7280; font-family: Verdana, Arial, sans-serif;">Nuri Bilge Ceylan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- İletişim -->
+        <section id="iletisim" style="border-bottom: none;">
+            <h2 class="section-title">İLETİŞİM</h2>
+            <div style="padding: 1rem 0;">
+                <p style="font-family: Lora, Georgia, serif; font-size: 0.938rem; color: #4b5563; margin-bottom: 1rem;">
+                    Benimle iletişime geçmek için aşağıdaki e-posta adresini kullanabilirsiniz.
+                </p>
+                <a href="mailto:arpacimetin50@gmail.com" style="font-weight: bold; font-size: 1.125rem; color: #111827; text-decoration: none;">
+                    arpacimetin50@gmail.com
+                </a>
+            </div>
+        </section>
+    </main>
+
 </body>
 </html>
